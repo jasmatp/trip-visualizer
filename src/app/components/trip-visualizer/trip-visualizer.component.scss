@@ -1,0 +1,186 @@
+/* Main layout container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Header and Footer shared styles */
+.app-header {
+  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  color: #fff;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.app-footer {
+  background: linear-gradient(90deg, #ee0979, #ff6a00);
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1rem;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header title */
+.app-header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+/* Footer text */
+.app-footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Main content area */
+.app-main {
+  flex-grow: 1;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Input form styling */
+.form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Input field styles */
+input {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 150px;
+}
+
+/* Button styles */
+button {
+  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-shadow: 0 3px 10px rgba(255, 106, 0, 0.3);
+}
+
+button:hover {
+  background: linear-gradient(90deg, #ee0979, #ff6a00);
+}
+
+
+/* Container for all trips */
+.trip-visualizer {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Each trip block */
+.trip-block {
+  position: relative;
+  width: 180px;
+}
+
+/* Label above line (trip info) */
+.label {
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Line with start/end circles */
+.line-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+/* Base line style */
+.line {
+  flex-grow: 1;
+  height: 2px;
+  position: relative;
+  margin: 0 5px;
+}
+
+/* Straight line (continued trip) */
+.straight {
+  background-color: green;
+}
+
+/* Arrow line (non-continued trip) */
+.arrow {
+  background-color: blue;
+}
+
+/* Arrow head using pseudo-element */
+.arrow::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  border: 6px solid transparent;
+  border-left-color: blue;
+}
+
+/* Curved line (repeated trip) */
+.curve {
+  height: 20px;
+  border-bottom: 2px dashed orange;
+  border-radius: 20px;
+  background: none;
+}
+
+/* Endpoint circles */
+.circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+/* Start point style */
+.start-point {
+  border: 2px solid gray;
+  background-color: white;
+}
+
+/* End point style */
+.end-point {
+  background-color: black;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 600px) {
+  .form {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form input {
+    width: 100%;
+  }
+
+  .trip-block {
+    width: 100%;
+  }
+}

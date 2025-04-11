@@ -1,0 +1,52 @@
+<!-- Main container that holds the entire Trip Visualizer UI -->
+<div class="app-container">
+
+  <!-- Header section with a title -->
+  <header class="app-header">
+    <h1>Trip Visualizer</h1>
+  </header>
+
+  <!-- Main content area -->
+  <main class="app-main">
+
+    <!-- Trip input form for Start and End Points -->
+    <div class="form">
+      <input [(ngModel)]="newTrip.start" placeholder="Start Point" />
+      <input [(ngModel)]="newTrip.end" placeholder="End Point" />
+      <button (click)="addTrip()">Add Trip</button>
+    </div>
+
+    <!-- Trip visualizer area that displays all added trips -->
+    <div class="trip-visualizer">
+
+      <!-- Loop through each trip and create a visual block -->
+      <div *ngFor="let trip of trips; let i = index" class="trip-block">
+
+        <!-- Display first 3 letters of Start and End points -->
+        <div class="label">
+          {{ getShort(trip.start) }} ➝ {{ getShort(trip.end) }}
+        </div>
+
+        <div class="line-wrapper">
+          <!-- Start circle -->
+          <div class="circle start-point"></div>
+
+          <!-- Line type based on trip.type (straight, arrow, curve) -->
+          <div class="line" [ngClass]="{
+                  'straight': trip.type === 'straight',
+                  'arrow': trip.type === 'arrow',
+                  'curve': trip.type === 'curve'
+                }"></div>
+
+          <!-- End circle -->
+          <div class="circle end-point"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer section -->
+  <footer class="app-footer">
+    <p>&copy; 2025 Trip Visualizer. All rights reserved.</p>
+  </footer>
+</div>
